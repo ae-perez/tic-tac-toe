@@ -3,8 +3,6 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import cloud from './cloudy.png';
 
-console.log(cloud);
-
 /* ******************************* VERSION ONE *******************************
 In this version, there is no history bank, so you won't be able to see the history of the game.
 I have just designed it differently to make it simple and aesthetically pleasing
@@ -19,9 +17,14 @@ function Square(props) {
     return (
         <button className="square" onClick={props.onClick}>
             {props.value}
+            {/* when you first load the page, the below console will output
+            9 nulls,
+            if you click one, then you'll see the nulls load again but with an x or o, depending on the player that played a turn */}
+            {/*console.log(props.value)*/} 
         </button>
     );
 }
+
   
 class Board extends React.Component {
       /*constructor that sets the board's initial state to contain an array of 9 nulls
@@ -32,7 +35,19 @@ class Board extends React.Component {
              squares: Array(9).fill(null),
              xIsNext: true, //setting up props for 'o'
          };
+         this.baseState = this.state;
+         //console.log(props + " props for board");
+
      }
+
+     /* this is where you are struggling */
+     restartGame = () => {
+       this.setState({
+        squares: Array(9).fill(null),
+        xIsNext: true,
+       });
+     }
+
 
      handleClick(i) {
          const squares = this.state.squares.slice();
@@ -93,6 +108,8 @@ class Board extends React.Component {
 }
   
   class Game extends React.Component {
+
+
     render() {
       return (
           <div>
@@ -101,18 +118,23 @@ class Board extends React.Component {
                 <img className="cloud2" src={cloud} alt="cloud" />
                 <img className="cloud3" src={cloud} alt="cloud" />
               </div>
+
               <div className="game">
                   <div className="game-board">
                       <Board />
-                    </div>
-                    <div className="game-info">
+                      <button className="strt-over" onClick={this.restartGame} type="button">PLAY AGAIN</button>
+                  </div>
+                  <div className="game-info">
               
                     <div>{/*status*/}</div>
-                        <ol>{/* TODO */}</ol>
-                    </div>
-                </div>
+                    <ol>{/* TODO */}</ol>
+
+
+                  </div>
+              </div>
           </div>    
       );
+
     }
   }
   

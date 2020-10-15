@@ -1,8 +1,9 @@
-body {
+  body {
     background-image: url("608323.png");
     font-family: 'Cutive Mono', monospace;
     font-size: 39px;
-    margin: 150px;
+    margin: 100px;
+ 
   }
   
 #root {
@@ -78,12 +79,182 @@ body {
   .game-info {
     margin-left: 20px;
   }
-  
 
+  .strt-over {
+    font-family: 'Cutive Mono', monospace;
+    font-size: 20px;
+    margin: 20px;
+    width: 190px;
+    height: 50px;
+    background-color: #fff;
+    border: 3px solid #fff;
+    border-radius: 10px;
+    text-decoration: none;
+    box-shadow: 0 8px 16px 0 rgba(31, 126, 250, 0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  }
 
   /*-------------------------animations-------------------------*/
-  @keyframes wind {
+@keyframes wind {
     from {left: -300px}
     to {left: 100%}  
 }
+
+  /*-------------------------media adjustments-------------------------*/
+  /*
+    {If the screen size is 500 wide, or less -- max}
+    {If screen size is more than 500 wide --min}
+    {order of media queries matters}
+  */
+  @media screen and (max-width: 900px)and (min-width: 701px) {
+    body {
+      width: 75%;
+      background-image: url("608323.png");
+      background-size: 925px 1000px;
+      font-family: 'Cutive Mono', monospace;
+      text-align: center;
+    }
+    
+  #root {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+
+    .square {
+      font-family: 'Cutive Mono', monospace;
+      background: #fff;
+      border: 1px solid orange;
+      float: left;
+      font-size: 30px;
+      margin-right: -1px;
+      margin-top: -1px;
+      padding: 0;
+      text-align: center;
+      width: 92px;
+      height: 92px;
+    }
+
+    .cloud1, .cloud2, .cloud3 {
+      margin: -300px;
+      position: absolute;
+      width: 250px;
+      height: 300px;
+      z-index: -1;
+      
+  }
+  
+  .cloud1 {
+      animation: wind 60s linear infinite reverse;
+  }
+  
+  .cloud2{
+      margin: -50px;
+      animation: wind 55s linear infinite reverse;
+  }
+  
+  .cloud3{
+      margin-top: 0px;
+      animation: wind 90s linear infinite reverse;
+  }
+
+  .status {
+    margin-bottom: 50px;
+    font-size: 30px;
+  }
+
+  .strt-over {
+    font-family: 'Cutive Mono', monospace;
+    font-size: 16px;
+    margin: 20px;
+    width: 130px;
+    height: 50px;
+    background-color: #fff;
+    border: 3px solid #fff;
+    border-radius: 10px;
+    text-decoration: none;
+    box-shadow: 0 8px 16px 0 rgba(31, 126, 250, 0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  }
+
+  }
+
+  @media screen and (max-width: 700px) and (min-width: 500px) {
+    body {
+      background-image: url("608323.png");
+      background-size: 885px 967px;
+      font-family: 'Cutive Mono', monospace;
+      text-align: center;
+    }
+    
+  #root {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+
+    .square {
+      font-family: 'Cutive Mono', monospace;
+      background: #fff;
+      border: 1px solid tomato;
+      float: left;
+      font-size: 30px;
+      margin-right: -1px;
+      margin-top: -1px;
+      padding: 0;
+      text-align: center;
+      width: 80px;
+      height: 80px;
+    }
+
+    .cloud1, .cloud2, .cloud3 {
+      margin: -300px;
+      position: absolute;
+      width: 150px;
+      height: 200px;
+      z-index: -1;  
+  }
+  
+  .cloud1 {
+      animation: wind 60s linear infinite reverse;
+  }
+  
+  .cloud2{
+      margin: -50px;
+      animation: wind 55s linear infinite reverse;
+  }
+  
+  .cloud3{
+      margin-top: 0px;
+      animation: wind 90s linear infinite reverse;
+  }
+
+  .status {
+    margin-bottom: 90px;
+    font-size: 26px;
+  }
+
+  .strt-over {
+    font-family: 'Cutive Mono', monospace;
+    font-size: 14px;
+    margin: 40px;
+    width: 130px;
+    height: 50px;
+    background-color: #fff;
+    border: 3px solid #fff;
+    border-radius: 10px;
+    text-decoration: none;
+    box-shadow: 0 8px 16px 0 rgba(31, 126, 250, 0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  }
+
+  }
+
+
+
+
+
 /*<a href='https://pngtree.com/so/watercolor'>watercolor png from pngtree.com</a>*/ 
